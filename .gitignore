@@ -1,0 +1,32 @@
+# ─── Secrets & Credentials ───────────────────────────────────────────────────
+config.js
+.env
+
+# ─── WhatsApp Session Auth (never commit!) ────────────────────────────────────
+wa_auth/
+wa_auth_2/
+wa_auth_3/
+
+# ─── Runtime Data (personal numbers, memory) ─────────────────────────────────
+monitor_data.json
+aizen_memory.json
+
+# ─── Generated Reports ────────────────────────────────────────────────────────
+report_*.txt
+
+# ─── Node.js ─────────────────────────────────────────────────────────────────
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm
+
+# ─── OS Files ─────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# ─── Logs ─────────────────────────────────────────────────────────────────────
+*.log
+logs/

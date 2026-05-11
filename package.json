@@ -1,0 +1,14 @@
+{
+  "name": "aizen-final-69",
+  "version": "69.0.0",
+  "description": "AIZEN V10 — Dual Engine Presence Monitor",
+  "main": "wa-monitor-bot.js",
+  "scripts": { "start": "node wa-monitor-bot.js" },
+  "dependencies": {
+    "@whiskeysockets/baileys": "npm:@kyuu2nd/baileys",
+    "@hapi/boom": "^10.0.1",
+    "node-telegram-bot-api": "^0.66.0",
+    "dotenv": "^16.4.5",
+    "pino": "^8.15.1"
+  }
+}
