@@ -1,5 +1,5 @@
 # 🔱 AIZEN PRO MAX 69
-### Dual-Engine WhatsApp Presence Monitor — Triple Session Architecture
+### Triple Engine WhatsApp Presence Monitor
 
 ```
 ╔══════════════════════════════════════════════════════════════╗
@@ -15,37 +15,33 @@
 ## ✨ Features
 
 ### 📡 Triple-Session Architecture
-| Session | Browser | Auth Folder | Role |
-|---------|---------|------------|------|
-| S1 | Chrome/Linux | `wa_auth/` | Main Detector + Telegram UI |
-| S2 | Edge/Windows | `wa_auth_2/` | Verifier (anti false-alarm) |
-| S3 | Firefox/Ubuntu | `wa_auth_3/` | Triple Confirm |
+| Session | Role |
+|---------|------|
+| S1 | Main Detector + Telegram UI |
+| S2 | Verifier (anti false-alarm) |
+| S3 | Triple Confirm |
 
 - **ONLINE**: Any 1 session detects → waits 3s → confirms → alert
-- **INSTANT DUAL/TRIPLE**: 2+ sessions agree → immediate alert (no wait)
-- **OFFLINE**: 2 of 3 sessions must confirm before firing alert
+- **INSTANT DUAL/TRIPLE**: 2+ sessions agree → immediate alert
+- **OFFLINE**: 2 of 3 sessions must confirm → alert
 
-### 🧠 Brain Features
-- **DP Change Detection** — 3x retry (CDN filter) + S2 dual-verify
-- **Bio Change Detection** — line-by-line diff, shows exactly what changed
-- **Business Profile Monitor** — triple-session vote, alerts on any change
-- **Device Detection** — Android/iOS/Web via message ID prefix (proven table)
-- **Multi-Device Alert** — detects when someone uses phone + web simultaneously
-- **Reinstall/Key Change** — identity key & security code change alerts
-- **Number Change Detect** — stubType 78 alerts
-- **Message Delete Alert** — real-time detection
+### 🧠 Features
+- DP Change Detection (3x retry + S2 verify)
+- Bio Change Detection (line-by-line diff)
+- Business Profile Monitor
+- Device Detection (Android/iOS/Web)
+- Multi-Device Alert
+- Message Delete Alert
 
 ### 🔍 OSINT Commands
 | Command | Description |
 |---------|-------------|
 | `/whois 91xxx` | Full profile analysis |
-| `/banned 91xxx` | Triple-session ban/active check with confidence score |
+| `/banned 91xxx` | Ban/active check with confidence score |
 | `/session 91xxx` | Today's online sessions + total time |
-| `/devices 91xxx` | Device usage history + hourly pattern |
+| `/devices 91xxx` | Device usage history |
 | `/bio 91xxx` | Current bio + change history |
-| `/history 91xxx` | Full DP + bio log |
 | `/report 91xxx` | Download full intelligence report |
-| `/spy 91xxx` | 2-minute intensive scan (all 3 sessions) |
 | `/online` | Who's online right now |
 | `/health` | Live session health check |
 
@@ -62,47 +58,114 @@
 
 ---
 
-## 🚀 Setup
+## 📋 Requirements
+- **Node.js 18+** → [nodejs.org](https://nodejs.org)
+- **Git** → [git-scm.com](https://git-scm.com)
+- **Telegram Bot Token** → [@BotFather](https://t.me/BotFather)
+- **Your Telegram User ID** → [@userinfobot](https://t.me/userinfobot)
+- 3 WhatsApp accounts (for S1, S2, S3)
 
-### Requirements
-- Node.js 18+ (20+ recommended)
-- A Telegram Bot Token ([@BotFather](https://t.me/BotFather))
-- Your Telegram User ID ([@userinfobot](https://t.me/userinfobot))
-- 3 WhatsApp accounts for pairing
+---
 
-### Installation
+## 💻 Windows (CMD)
 
-```bash
-# 1. Clone the repo
-git clone https://github.com/YOUR_USERNAME/aizen-pro-max-69.git
+**Step 1** — Open CMD, go to Desktop:
+```cmd
+cd Desktop
+```
+
+**Step 2** — Clone the repo:
+```cmd
+git clone https://github.com/mikeyfuxks2-creator/aizen-pro-max-69.git
+```
+
+**Step 3** — Enter the folder **(important!)**:
+```cmd
 cd aizen-pro-max-69
+```
 
-# 2. Install dependencies
+**Step 4** — Install dependencies:
+```cmd
 npm install
+```
 
-# 3. Setup config
-cp config.example.js config.js
-# Edit config.js with your BOT_TOKEN and OWNER_ID
+**Step 5** — Create config:
+```cmd
+copy config.example.js config.js
+notepad config.js
+```
+Notepad mein apna **Bot Token** aur **Owner ID** daalo → Save → Close
 
-# 4. Start
+**Step 6** — Start bot:
+```cmd
 node wa-monitor-bot.js
 ```
 
-### Using .env instead of config.js
+---
+
+## 📱 Termux (Android)
+
+**Step 1** — Packages install karo:
 ```bash
-cp .env.example .env
-# Edit .env with your values
-node wa-monitor-bot.js
+pkg update && pkg install nodejs git -y
 ```
 
-### Pairing WhatsApp Sessions
-Once the bot starts, in Telegram:
+**Step 2** — One-line install (sab automatic):
+```bash
+bash <(curl -s https://raw.githubusercontent.com/mikeyfuxks2-creator/aizen-pro-max-69/main/install.sh)
 ```
-/pair 91XXXXXXXXXX    ← Session 1 (main)
-/pair2 91XXXXXXXXXX   ← Session 2 (verifier)
-/pair3 91XXXXXXXXXX   ← Session 3 (triple confirm)
+Bot Token + Owner ID maangega → enter karo → bot start ✅
+
+**Dobara start:**
+```bash
+cd aizen-pro-max-69 && bash start.sh
 ```
-Each gives a pairing code — enter it in WhatsApp → Linked Devices.
+
+---
+
+## 🖥️ VPS / Linux (Ubuntu/Debian)
+
+**Step 1** — Node.js install karo:
+```bash
+curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+sudo apt install -y nodejs git
+```
+
+**Step 2** — One-line install:
+```bash
+bash <(curl -s https://raw.githubusercontent.com/mikeyfuxks2-creator/aizen-pro-max-69/main/install.sh)
+```
+Bot Token + Owner ID maangega → enter karo → bot start ✅
+
+**Background mein run karna ho:**
+```bash
+npm install -g pm2
+pm2 start wa-monitor-bot.js --name aizen
+pm2 save
+```
+
+---
+
+## 🐦 Pterodactyl Panel
+
+Environment variables:
+```
+BOT_TOKEN  = your_telegram_bot_token
+OWNER_ID   = your_telegram_user_id
+```
+Start command: `node wa-monitor-bot.js`
+
+---
+
+## 📲 WhatsApp Pairing
+
+Bot start hone ke baad Telegram mein:
+```
+/pair 91XXXXXXXXXX    ← Session 1
+/pair2 91XXXXXXXXXX   ← Session 2
+/pair3 91XXXXXXXXXX   ← Session 3
+```
+Pairing code milega → WhatsApp → Linked Devices → Link with phone number → Code enter karo
 
 ---
 
@@ -110,74 +173,26 @@ Each gives a pairing code — enter it in WhatsApp → Linked Devices.
 
 ```
 aizen-pro-max-69/
-├── wa-monitor-bot.js      ← Main bot (Session 1 + Telegram UI)
-├── verifier.js            ← Session 2 child process
-├── verifier3.js           ← Session 3 child process
-├── config.example.js      ← Config template (copy → config.js)
-├── .env.example           ← ENV template (copy → .env)
+├── wa-monitor-bot.js      ← Main bot (S1 + Telegram UI)
+├── verifier.js            ← Session 2
+├── verifier3.js           ← Session 3
+├── config.example.js      ← Config template → copy to config.js
+├── .env.example           ← ENV template
+├── install.sh             ← Auto installer (Linux/Termux)
+├── start.sh               ← Quick start script
 ├── package.json
-├── README.md
-│
-├── wa_auth/               ← [AUTO CREATED] S1 session files
-├── wa_auth_2/             ← [AUTO CREATED] S2 session files
-├── wa_auth_3/             ← [AUTO CREATED] S3 session files
-├── monitor_data.json      ← [AUTO CREATED] Runtime data
-└── aizen_memory.json      ← [AUTO CREATED] Persistent memory
+└── README.md
 ```
 
-> ⚠️ `wa_auth*/`, `monitor_data.json`, `aizen_memory.json`, and `config.js` are in `.gitignore` — never committed.
+> ⚠️ `config.js` aur `wa_auth*/` folders `.gitignore` mein hain — kabhi commit nahi honge
 
 ---
 
-## 🐦 Pterodactyl Deployment
-
-Use environment variables in your egg:
-```
-BOT_TOKEN  = your_telegram_bot_token
-OWNER_ID   = your_telegram_user_id
-```
-
-Start command: `node wa-monitor-bot.js`
-
-> Dependencies auto-install on first run if `node_modules` is missing.
+## 🛡 Security
+- `config.js` kisi ko mat dena — bot token hota hai
+- `wa_auth/` folders share mat karna — WhatsApp session hoti hai
+- Bot sirf tumhare `OWNER_ID` ko respond karta hai
 
 ---
 
-## 📊 How Detection Works
-
-```
-Target comes online
-       │
-S1 detects presence ──────────────────────────────────────────┐
-       │                                                       │
-       ├─ Asks S2 + S3 to verify                              │
-       │                                                       │
-Wait 3s ────────────────────────────────┐                     │
-       │                               │                      │
-1 session confirms     ←──── OR ────→  2-3 sessions confirm   │
-(Careful alert)                        (INSTANT DUAL/TRIPLE)  │
-       │                                                       │
-       └──────────────→ 🔔 Telegram Alert ←────────────────────┘
-
-Target goes offline → 2 of 3 must agree → final check → 🔔 Alert
-```
-
----
-
-## 🛡 Security Notes
-
-- **Never commit** `config.js`, `.env`, or `wa_auth*/` folders
-- Use different WhatsApp accounts for each session (S1/S2/S3)
-- Bot only responds to your `OWNER_ID` — all other users ignored
-- Session auth is stored locally only
-
----
-
-## 📄 License
-
-Private project — All rights reserved  
-© [Aizen Services](https://instagram.com/immortalaizen)
-
----
-
-*Built with ❤️ by [@immortalaizen](https://instagram.com/immortalaizen)*
+*Built by [@immortalaizen](https://instagram.com/immortalaizen) · Aizen Services*
